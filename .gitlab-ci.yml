@@ -1,0 +1,22 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - check
+  
+build:
+  stage: build  
+  script:
+    - docker build -t my-test-case .
+    - docker run --rm --entrypoint sh my-test-case -c "make build"
+
+check-sarif:
+  stage: check
+  image: microsoft/dotnet:latest
+  script:
+    - dotnet tool install --tool-path /tmp Sarif.Multitool
+    - /tmp/sarif validate $PWD/
+

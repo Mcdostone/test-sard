@@ -1,0 +1,59 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "properties": {
+        "id": 98,
+        "version": "1.0.0",
+        "type": "source code",
+        "status": "candidate",
+        "submissionDate": "2006-01-04",
+        "language": "c",
+        "description": "malloc\"d data is never freed and all pointers to the data are lost.\nPLOVER: RES.MEMLEAK",
+        "state": "bad"
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/mem-bad1.c"
+          },
+          "length": 501,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-1": "9352646c03ca013fcf0f7f034b4d56baf23ea87a"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_latest.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_latest.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": []
+        }
+      ],
+      "results": []
+    }
+  ]
+}
